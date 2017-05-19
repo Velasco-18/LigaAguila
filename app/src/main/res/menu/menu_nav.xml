@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_actualidad" android:title="@string/actualidad" android:icon="@drawable/ic_noticias"/>
+    <item android:id="@+id/nav_equipo" android:title="@string/equipo" android:icon="@drawable/ic_equipo"/>
+    <item android:id="@+id/nav_tabla" android:title="@string/tabla" android:icon="@drawable/ic_tabla_pos"/>
+    <item android:id="@+id/nav_partidos" android:title="@string/partidos" android:icon="@drawable/ic_partidos"/>
+    <item android:id="@+id/nav_historia" android:title="@string/historia" android:icon="@drawable/ic_historia"/>
+
+    <item android:id="@+id/perfil" android:title="@string/perf">
+
+        <menu>
+            <item android:id="@+id/nav_perfil" android:icon="@drawable/ic_perfil" android:title="@string/perfil"/>
+            <item android:id="@+id/nav_logout" android:icon="@drawable/ic_salir" android:title="@string/cerrar_sesion"/>
+        </menu>
+
+    </item>
+
+</menu>

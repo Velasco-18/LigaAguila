@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Liga Aguila</string>
+    <string name="registro">Regístro</string>
+    <string name="reg">Regístrate</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="aceptarRegistro">Aceptar</string>
+    <string name="pregunta">¿Cuál es tu equipo Favorito?</string>
+    <string name="contrasena">Define una contraseña</string>
+    <string name="pass">Contraseña</string>
+    <string name="correo_elect">Ingresa tu correo electrónico</string>
+    <string name="contrasenaRect">Repite la contraseña</string>
+    <string name="usuario">¿Con qué usuario deseas registrarte?</string>
+    <string name="user">Usuario</string>
+    <string name="apellido">¿Cuál es tu Apellido?</string>
+    <string name="nombre">¿Cuál es tu Nombre?</string>
+    <string name="equipo">Equipo</string>
+    <string name="tabla">Tabla de Posiciones</string>
+    <string name="partidos">Partidos</string>
+    <string name="historia">Historia</string>
+    <string name="perfil">Mí Perfíl</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="close">menu cerrado</string>
+    <string name="open">menu abierto</string>
+    <string name="name">Inicia Sesión</string>
+    <string name="omitir">Omitir</string>
+    <string name="perf">Perfíl</string>
+    <string name="completaRegistro">Completa los siguientes campos.</string>
+    <string name="actualidad">Noticias</string>
+    <string name="cargando">Cargando: </string>
+
+    <string-array name="equipos">
+        <item>América de Cali</item>
+        <item>Atl. Nacional</item>
+        <item>Ind. Medellín</item>
+        <item>Deportivo Cali</item>
+        <item>Millonarios</item>
+        <item>Jaguares de Córdoba</item>
+        <item>Ind. Santa Fe</item>
+        <item>Alianza Petrolera</item>
+        <item>Patriotas</item>
+        <item>La Equidad</item>
+        <item>Atl. Bucaramanga</item>
+        <item>Tolima</item>
+        <item>Tigres</item>
+        <item>Rionegro Águilas</item>
+        <item>Atl. Huila</item>
+        <item>Junior</item>
+        <item>Cortuluá</item>
+        <item>Once Caldas</item>
+        <item>Envigado</item>
+    </string-array>
+</resources>

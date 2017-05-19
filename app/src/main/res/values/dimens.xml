@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="letter_title">22dp</dimen>
+    <dimen name="p">18dp</dimen>
+    <dimen name="pp">16dp</dimen>
+    <dimen name="tILwidth">385dp</dimen>
+    <dimen name="tIL_height">65dp</dimen>
+    <dimen name="title">24dp</dimen>
+    <dimen name="cabecera">160dp</dimen>
+    <dimen name="smallDp">128dp</dimen>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="limiteProgress">100</integer>
+    <integer name="limiteRegistroPass">10</integer>
+    <integer name="limiteRegistroUser">15</integer>
+</resources>

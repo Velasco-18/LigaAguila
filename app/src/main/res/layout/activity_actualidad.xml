@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+
+    <data></data>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+        <include layout="@layout/activity_bar"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
+        <!--<FrameLayout
+        android:id="@+id/containeer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>-->
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/menu_nav"
+            app:headerLayout="@layout/activity_cabecera"/>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</layout>
