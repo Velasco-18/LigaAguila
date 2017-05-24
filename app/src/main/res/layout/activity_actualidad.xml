@@ -16,7 +16,11 @@
         <include layout="@layout/activity_bar"
             android:layout_height="match_parent"
             android:layout_width="match_parent"/>
-        <!--<FrameLayout
+
+        <!--<include layout="@layout/activity_noticias"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
+        <!<FrameLayout
         android:id="@+id/containeer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>-->

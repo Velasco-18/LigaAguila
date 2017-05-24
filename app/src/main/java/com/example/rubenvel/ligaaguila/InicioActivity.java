@@ -15,6 +15,7 @@ import com.example.rubenvel.ligaaguila.databinding.ActivityInicioBinding;
 
 public class InicioActivity extends AppCompatActivity  {
 
+    private Context contexto;
     ActivityInicioBinding binding;
     SharedPreferences preferences;
     Button registrar;
@@ -28,7 +29,7 @@ public class InicioActivity extends AppCompatActivity  {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.setHandler(this);
 
-        preferences = getSharedPreferences("Registro", MODE_PRIVATE);
+        preferences = getSharedPreferences("Registro", contexto.MODE_PRIVATE);
 
         String Nombre=preferences.getString("Nombre", "" );
         binding.editNombre.setText(Nombre);
@@ -82,7 +83,6 @@ public class InicioActivity extends AppCompatActivity  {
         editor.putString("Equipo",binding.spinner.getSelectedItem()+"");
 
         int pos=binding.spinner.getSelectedItemPosition();
-        Toast.makeText(getApplicationContext(), pos, Toast.LENGTH_SHORT).show();
 
         editor.apply();
 

@@ -8,4 +8,6 @@
     <dimen name="title">24dp</dimen>
     <dimen name="cabecera">160dp</dimen>
     <dimen name="smallDp">128dp</dimen>
+    <dimen name="elementImg">180dp</dimen>
+    <dimen name="icon">25dp</dimen>
 </resources>

@@ -6,7 +6,10 @@
 
     <color name="negro">#000000</color>
     <color name="gris">#585858</color>
-    <color name="fondoInputText">#778a8a8a</color>
+    <color name="fondoInputText">#b18a8a8a</color>
     <color name="white">#e4e4e4</color>
-    <color name="fondoInputTextI">#09565656</color>
+    <color name="fondoInputTextI">#31585858</color>
+
+    <color name="icon">#585858</color>
+    <color name="elementBg">#333333</color>
 </resources>

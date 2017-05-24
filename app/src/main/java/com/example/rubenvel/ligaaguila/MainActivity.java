@@ -1,6 +1,8 @@
 package com.example.rubenvel.ligaaguila;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setProgress(0);
+        //progressBar.getIndeterminateDrawable().setColorFilter(Color.BLACK, PorterDuff.SRC_IN);
+
         text = (TextView) findViewById(R.id.text);
 
         final long fin = 100;
@@ -48,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
-                Toast.makeText(MainActivity.this, "Cargado Correctamente",Toast.LENGTH_SHORT).show();
             }
         },0,fin);
     }
