@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/nav_actualidad" android:title="@string/actualidad" android:icon="@drawable/ic_noticias"/>
+    <item android:id="@+id/nav_noticias" android:title="@string/actualidad" android:icon="@drawable/ic_noticias"/>
     <item android:id="@+id/nav_equipo" android:title="@string/equipo" android:icon="@drawable/ic_equipo"/>
     <item android:id="@+id/nav_tabla" android:title="@string/tabla" android:icon="@drawable/ic_tabla_pos"/>
     <item android:id="@+id/nav_partidos" android:title="@string/partidos" android:icon="@drawable/ic_partidos"/>

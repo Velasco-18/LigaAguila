@@ -21,9 +21,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SesionActivity"  android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".InicioActivity" android:label="@string/registro"/>
-        <activity android:name=".ActualidadActivity" android:label="@string/actualidad" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".SesionActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".InicioActivity"
+            android:label="@string/registro"/>
+
+        <activity android:name=".NoticiasActivity"
+            android:label="@string/actualidad"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 

@@ -23,7 +23,7 @@ public class SesionActivity extends AppCompatActivity {
 
     public void goToInicioSesion(){
 
-        Intent intent = new Intent(this, ActualidadActivity.class);
+        Intent intent = new Intent(this, NoticiasActivity.class);
         startActivity(intent);
     }
     public void goToRegistro(){
@@ -32,7 +32,7 @@ public class SesionActivity extends AppCompatActivity {
     }
 
     public void goToOmitir(){
-        Intent intent = new Intent(this, ActualidadActivity.class);
+        Intent intent = new Intent(this, NoticiasActivity.class);
         startActivity(intent);
     }
 }

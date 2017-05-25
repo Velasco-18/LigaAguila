@@ -13,11 +13,11 @@ import com.squareup.picasso.Picasso;
 public class Attrs {
 
     @BindingAdapter("app:imgUrl")
-    public static void setImage(ImageView img, String url){
+    public static void setImage(ImageView image, String url){
 
-        Picasso.with(img.getContext())
+        Picasso.with(image.getContext())
                 .load(Uri.parse(url))
-                .into(img);
+                .into(image);
 
     }
 

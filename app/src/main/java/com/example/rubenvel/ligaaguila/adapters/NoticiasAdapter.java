@@ -41,8 +41,8 @@ public class NoticiasAdapter  extends RecyclerView.Adapter<NoticiasAdapter.Notic
     //Se enlaza el viewHolder - Cuando se ponen datos
     @Override
     public void onBindViewHolder(NoticiaHolder holder, int position) {
-        Noticia m = data.get(position);
-        holder.binding.setNoticia(m);
+        Noticia n = data.get(position);
+        holder.binding.setNoticia(n);
         holder.binding.getRoot().setTag(position);
         holder.binding.setHandler(this);
     }
@@ -58,7 +58,7 @@ public class NoticiasAdapter  extends RecyclerView.Adapter<NoticiasAdapter.Notic
     }
     //region ViewHolder
     static class NoticiaHolder extends RecyclerView.ViewHolder{
-
+        //Acceso al view
         TemplateNoticiaBinding binding;
 
         public NoticiaHolder(View itemView) {
