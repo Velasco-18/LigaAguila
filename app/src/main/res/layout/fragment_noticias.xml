@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+        <!--<FrameLayout
+        android:id="@+id/containeer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+        <include layout="@layout/activity_bar"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.rubenvel.ligaaguila.fragments.NoticiasFragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/noticias_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="56dp"/>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

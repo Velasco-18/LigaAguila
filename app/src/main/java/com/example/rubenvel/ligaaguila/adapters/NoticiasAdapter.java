@@ -1,14 +1,21 @@
 package com.example.rubenvel.ligaaguila.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.rubenvel.ligaaguila.InicioActivity;
 import com.example.rubenvel.ligaaguila.R;
+import com.example.rubenvel.ligaaguila.content.NoticiaContentActivity;
+import com.example.rubenvel.ligaaguila.databinding.NoticiaContentBinding;
 import com.example.rubenvel.ligaaguila.databinding.TemplateNoticiaBinding;
+import com.example.rubenvel.ligaaguila.fragments.NoticiasFragment;
 import com.example.rubenvel.ligaaguila.models.Noticia;
+import com.example.rubenvel.ligaaguila.util.Data;
 
 import java.util.List;
 
@@ -23,49 +30,82 @@ public class NoticiasAdapter  extends RecyclerView.Adapter<NoticiasAdapter.Notic
     }
 
     LayoutInflater inflater;
-    List<Noticia> data;
     OnNoticiaSelected onNoticiaSelected;
+    View.OnClickListener onClickListener;
+    List<Noticia> data;
 
-    public NoticiasAdapter(LayoutInflater inflater, List<Noticia> data, OnNoticiaSelected onNoticiaSelected) {
-        this.inflater = inflater;
+    //public NoticiasAdapter(LayoutInflater layoutInflater, NoticiasFragment noticiasFragment) {
+    //    this.inflater = layoutInflater;
+    //    this.onNoticiaSelected = noticiasFragment;
+    //}
+
+    public NoticiasAdapter(List<Noticia> data, LayoutInflater inflater, View.OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
         this.data = data;
-        this.onNoticiaSelected = onNoticiaSelected;
+        this.inflater = inflater;
     }
+
+
+   // public NoticiasAdapter(LayoutInflater inflater, List<Noticia> dataN, OnNoticiaSelected onNoticiaSelected) {
+    //    this.inflater = inflater;
+     //   this.data = dataN;
+     //   this.onNoticiaSelected = onNoticiaSelected;
+    //}
 
     //Se crea el viewHolder
     @Override
     public NoticiaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflater.inflate(R.layout.template_noticia, parent, false);
-        return new NoticiaHolder(v);
+        NoticiaHolder holder = new NoticiaHolder(v);
+        return holder;
     }
     //Se enlaza el viewHolder - Cuando se ponen datos
     @Override
     public void onBindViewHolder(NoticiaHolder holder, int position) {
-        Noticia n = data.get(position);
-        holder.binding.setNoticia(n);
-        holder.binding.getRoot().setTag(position);
+
+        holder.binding.setNoticia(Data.getDataNoticia().get(position));
         holder.binding.setHandler(this);
+
+        //Eventos
+        holder.setOnClickListeners();
     }
     //Retorna el tamaño
     @Override
     public int getItemCount() {
-        return data.size();
+        return Data.getDataNoticia().size();
     }
 
-    public void onClick(View view){
-        int pos = (int) view.getTag();
-        onNoticiaSelected.onNoticia(pos);
-    }
+    //public void onClick(View v){
+    //    int pos = (int) v.getTag();
+    //    onNoticiaSelected.onNoticia(pos);
+    //}
     //region ViewHolder
-    static class NoticiaHolder extends RecyclerView.ViewHolder{
-        //Acceso al view
+    public static class NoticiaHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        //Este ViewHolder es la clase que da acceso a los views del template
         TemplateNoticiaBinding binding;
+
+        Context context;
+
 
         public NoticiaHolder(View itemView) {
             super(itemView);
-            binding = DataBindingUtil.bind(itemView);
+            binding = TemplateNoticiaBinding.bind(itemView);
+            context = itemView.getContext();
+        }
+
+        void setOnClickListeners(){
+            binding.card.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+
+            int pos = 0;
+
+        Intent intent = new Intent(context, NoticiaContentActivity.class);
+            intent.putExtra(NoticiaContentActivity.POS_EXTRA, pos);
+            context.startActivity(intent);
         }
     }
     //endregion
-
 }

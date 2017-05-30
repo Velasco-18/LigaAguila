@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="noticias"
+            type="com.example.rubenvel.ligaaguila.models.Noticia"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.rubenvel.ligaaguila.content.NoticiaContentActivity">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+
+            <include layout="@layout/noticia_content"
+                app:content="@{noticias}"
+                />
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+            >
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsingBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cabecera"
+                app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed"
+                app:title="@string/noticia"
+                app:contentScrim="@color/colorPrimary"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+                >
+
+                <ImageView
+                    android:id="@+id/imgNoticia"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:imgUrl="@{noticias.imagen}"
+                    app:layout_collapseMode="parallax"
+                    />
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    />
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
+

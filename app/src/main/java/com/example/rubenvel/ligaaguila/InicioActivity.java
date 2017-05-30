@@ -49,9 +49,9 @@ public class InicioActivity extends AppCompatActivity  {
         String Correo=preferences.getString("Correo", "" );
         binding.editCorreo.setText(Correo);
 
-        String Equipo=preferences.getString("Equipo", "" );
+        //String Equipo=preferences.getString("Equipo", "" );
 
-        equiposData = getResources().getStringArray(R.array.equipos);
+        //equiposData = getResources().getStringArray(R.array.equipos);
 
         /*if ((binding.editNombre == null)&&(binding.editApellido == null)&&(binding.editUsuario == null)
                 &&(binding.editContrasena == null)&&(binding.editContrasenaRec == null)&&(binding.editCorreo == null)){

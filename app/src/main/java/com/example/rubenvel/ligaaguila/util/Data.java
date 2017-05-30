@@ -1,6 +1,7 @@
 package com.example.rubenvel.ligaaguila.util;
 
 import com.example.rubenvel.ligaaguila.models.Noticia;
+import com.example.rubenvel.ligaaguila.models.Partido;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +12,12 @@ import java.util.List;
 
 public class Data {
 
-    private static List<Noticia>data;
+    public static List<Noticia>dataN;
 
-    public static List<Noticia> getData(){
-        if(data == null){
-            data = new ArrayList<>();
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public static List<Noticia> getDataNoticia(){
+        if(dataN == null){
+            dataN = new ArrayList<>();
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             Noticia n1 = new Noticia();
             n1.setNombre("DIM, por una victoria frente a Alianza para ratificarse como segundo");
             n1.setFecha("Actualizado Hace 2 Horas");
@@ -73,16 +74,101 @@ public class Data {
             n8.setDesc("De regreso a la titular de Millonarios, el volante habla de mejorar para asegurar la clasificación.");
             n8.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852462-1.jpg");
 
-            data.add(n1);
-            data.add(n2);
-            data.add(n3);
-            data.add(n4);
-            data.add(n5);
-            data.add(n6);
-            data.add(n7);
-            data.add(n8);
+            dataN.add(n1);
+            dataN.add(n2);
+            dataN.add(n3);
+            dataN.add(n4);
+            dataN.add(n5);
+            dataN.add(n6);
+            dataN.add(n7);
+            dataN.add(n8);
 
         }
-        return data;
+
+        return dataN;
+    }
+
+    private static List<Partido>dataP;
+
+    public static List<Partido> getDataPartido(){
+        if(dataP == null){
+            dataP = new ArrayList<>();
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Partido p1 = new Partido();
+            p1.setEquipo1("América");
+            p1.setEquipo2("Cali");
+            p1.setFecha("24-10-2017");
+            p1.setDescripcion("");
+            p1.setDesc("Luis Zubeldía dispondrá de una nómina mixta, con Didier Moreno y Christian Marrugo como titulares.");
+            p1.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852751-1.jpg");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Partido p2 = new Partido();
+            p2.setEquipo1("América");
+            p2.setEquipo2("Cali");
+            p2.setFecha("24-10-2017");
+            p2.setDescripcion("");
+            p2.setDesc("Luis Zubeldía dispondrá de una nómina mixta, con Didier Moreno y Christian Marrugo como titulares.");
+            p2.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852751-1.jpg");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Partido p3 = new Partido();
+            p3.setEquipo1("América");
+            p3.setEquipo2("Cali");
+            p3.setFecha("24-10-2017");
+            p3.setDescripcion("");
+            p3.setDesc("Luis Zubeldía dispondrá de una nómina mixta, con Didier Moreno y Christian Marrugo como titulares.");
+            p3.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852751-1.jpg");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Partido p4 = new Partido();
+            p4.setEquipo1("América");
+            p4.setEquipo2("Cali");
+            p4.setFecha("24-10-2017");
+            p4.setDescripcion("");
+            p4.setDesc("Luis Zubeldía dispondrá de una nómina mixta, con Didier Moreno y Christian Marrugo como titulares.");
+            p4.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852751-1.jpg");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Partido p5 = new Partido();
+            p5.setEquipo1("América");
+            p5.setEquipo2("Cali");
+            p5.setFecha("24-10-2017");
+            p5.setDescripcion("");
+            p5.setDesc("Luis Zubeldía dispondrá de una nómina mixta, con Didier Moreno y Christian Marrugo como titulares.");
+            p5.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852751-1.jpg");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Partido p6 = new Partido();
+            p6.setEquipo1("América");
+            p6.setEquipo2("Cali");
+            p6.setFecha("24-10-2017");
+            p6.setDescripcion("");
+            p6.setDesc("Luis Zubeldía dispondrá de una nómina mixta, con Didier Moreno y Christian Marrugo como titulares.");
+            p6.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852751-1.jpg");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Partido p7 = new Partido();
+            p7.setEquipo1("América");
+            p7.setEquipo2("Cali");
+            p7.setFecha("24-10-2017");
+            p7.setDescripcion("");
+            p7.setDesc("Luis Zubeldía dispondrá de una nómina mixta, con Didier Moreno y Christian Marrugo como titulares.");
+            p7.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852751-1.jpg");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Partido p8 = new Partido();
+            p8.setEquipo1("América");
+            p8.setEquipo2("Cali");
+            p8.setFecha("24-10-2017");
+            p8.setDescripcion("");
+            p8.setDesc("Luis Zubeldía dispondrá de una nómina mixta, con Didier Moreno y Christian Marrugo como titulares.");
+            p8.setImagen("http://www.futbolred.com/contenido/liga-aguila/IMAGEN/IMAGEN-16852751-1.jpg");
+
+            dataP.add(p1);
+            dataP.add(p2);
+            dataP.add(p3);
+            dataP.add(p4);
+            dataP.add(p5);
+            dataP.add(p6);
+            dataP.add(p7);
+            dataP.add(p8);
+
+        }
+
+        return dataP;
     }
 }

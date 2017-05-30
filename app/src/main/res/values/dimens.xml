@@ -10,4 +10,5 @@
     <dimen name="smallDp">128dp</dimen>
     <dimen name="elementImg">180dp</dimen>
     <dimen name="icon">25dp</dimen>
+    <dimen name="icon_versus">40dp</dimen>
 </resources>
