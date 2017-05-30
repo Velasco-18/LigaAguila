@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,11 +16,9 @@ import com.example.rubenvel.ligaaguila.databinding.ActivityInicioBinding;
 
 public class InicioActivity extends AppCompatActivity  {
 
-    private Context contexto;
+    Context contexto;
     ActivityInicioBinding binding;
     SharedPreferences preferences;
-    Button registrar;
-    String equiposData[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +27,7 @@ public class InicioActivity extends AppCompatActivity  {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_inicio);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.setHandler(this);
+
 
         preferences = getSharedPreferences("Registro", contexto.MODE_PRIVATE);
 
@@ -49,16 +49,10 @@ public class InicioActivity extends AppCompatActivity  {
         String Correo=preferences.getString("Correo", "" );
         binding.editCorreo.setText(Correo);
 
-        //String Equipo=preferences.getString("Equipo", "" );
-
-        //equiposData = getResources().getStringArray(R.array.equipos);
-
-        /*if ((binding.editNombre == null)&&(binding.editApellido == null)&&(binding.editUsuario == null)
-                &&(binding.editContrasena == null)&&(binding.editContrasenaRec == null)&&(binding.editCorreo == null)){
-
-
-
-        }*/
+        int spinnerEquipo = preferences.getInt("Equipo",-1);
+        if(spinnerEquipo != -1){
+            binding.spinner.setSelection(spinnerEquipo);
+        }
     }
 
     @Override
@@ -72,6 +66,7 @@ public class InicioActivity extends AppCompatActivity  {
 
 
     public void goToGuardarRegistro(){
+        int pos=binding.spinner.getSelectedItemPosition();
 
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Nombre", binding.editNombre.getText().toString());
@@ -80,9 +75,8 @@ public class InicioActivity extends AppCompatActivity  {
         editor.putString("Contrasena", binding.editContrasena.getText().toString());
         editor.putString("ContrasenaRec", binding.editContrasenaRec.getText().toString());
         editor.putString("Correo", binding.editCorreo.getText().toString());
-        editor.putString("Equipo",binding.spinner.getSelectedItem()+"");
 
-        int pos=binding.spinner.getSelectedItemPosition();
+        editor.putInt("Equipo", pos);
 
         editor.apply();
 

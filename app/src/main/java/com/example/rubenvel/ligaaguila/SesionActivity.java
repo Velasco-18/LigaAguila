@@ -1,7 +1,10 @@
 package com.example.rubenvel.ligaaguila;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -18,7 +21,6 @@ public class SesionActivity extends AppCompatActivity {
         binding.setHandlerSesion(this);
         binding.setHandlerRegistro(this);
         binding.setHandlerOmitir(this);
-
     }
 
     public void goToInicioSesion(){

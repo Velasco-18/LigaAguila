@@ -7,14 +7,14 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.rubenvel.ligaaguila.fragments.NoticiasFragment">
+        tools:context="com.example.rubenvel.ligaaguila.fragments.PartidoFragment">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/noticias_list"
+                android:id="@+id/partido_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingTop="56dp"/>

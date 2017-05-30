@@ -12,7 +12,7 @@ import android.view.ViewTreeObserver;
 import com.example.rubenvel.ligaaguila.R;
 import com.example.rubenvel.ligaaguila.databinding.ActivityNoticiaContentBinding;
 import com.example.rubenvel.ligaaguila.models.Noticia;
-import com.example.rubenvel.ligaaguila.util.Data;
+import com.example.rubenvel.ligaaguila.util.NoticiaData;
 
 public class NoticiaContentActivity extends AppCompatActivity implements ViewTreeObserver.OnGlobalLayoutListener {
 
@@ -34,7 +34,7 @@ public class NoticiaContentActivity extends AppCompatActivity implements ViewTre
         Bundle posicion = getIntent().getExtras();
         int pos = posicion.getInt(POS_EXTRA);
 
-        Noticia noticia = Data.getDataNoticia().get(pos);
+        Noticia noticia = NoticiaData.getDataNoticia().get(pos);
 
         binding.setNoticias(noticia);
         binding.getRoot().getViewTreeObserver().addOnGlobalLayoutListener(this);

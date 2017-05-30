@@ -5,29 +5,28 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.rubenvel.ligaaguila.adapters.NoticiasAdapter;
-import com.example.rubenvel.ligaaguila.content.NoticiaContentActivity;
 import com.example.rubenvel.ligaaguila.databinding.ActivityNoticiasBinding;
 import com.example.rubenvel.ligaaguila.fragments.NoticiasFragment;
-import com.example.rubenvel.ligaaguila.models.Item;
+import com.example.rubenvel.ligaaguila.fragments.PartidoFragment;
 import com.example.rubenvel.ligaaguila.models.Noticia;
-import com.example.rubenvel.ligaaguila.util.Data;
+import com.example.rubenvel.ligaaguila.util.NoticiaData;
 
 import java.util.ArrayList;
 
-import static com.example.rubenvel.ligaaguila.util.Data.getDataNoticia;
+import static com.example.rubenvel.ligaaguila.util.NoticiaData.getDataNoticia;
 
 public class NoticiasActivity extends AppCompatActivity implements  DrawerLayout.DrawerListener,
         NavigationView.OnNavigationItemSelectedListener {
@@ -36,15 +35,15 @@ public class NoticiasActivity extends AppCompatActivity implements  DrawerLayout
     NoticiasAdapter adapter;
 
     NoticiasFragment fragment;
-/////////////////////////Drawer///////////////////////////////////////
+
     ActionBarDrawerToggle toggle;
-//////////////////////////////////////////////////////////////////////
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_noticias);
 
-            //region Drawer Toolbar
+        //region Drawer Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -58,12 +57,9 @@ public class NoticiasActivity extends AppCompatActivity implements  DrawerLayout
         binding.nav.setNavigationItemSelectedListener(this);
         //endregion  Too
 
-        Data.dataN =  new ArrayList<>();
+        NoticiaData.dataN =  new ArrayList<>();
         fragment = new NoticiasFragment();
-        //adapter = new NoticiasAdapter(getLayoutInflater(), NoticiasFragment.instace());
         cambiarFragment(NoticiasFragment.instace());
-        //binding.list.setAdapter(adapter);
-        //binding.list.setLayoutManager(new LinearLayoutManager(this));
         cargarDatos();
     }
 
@@ -143,7 +139,7 @@ public class NoticiasActivity extends AppCompatActivity implements  DrawerLayout
     //@Override
     //public void onNoticia(int position) {
         //Toast.makeText(this, "Noticia" +position, Toast.LENGTH_SHORT).show();
-    //    if(Data.dataN.equals(Item.TYPE)) {
+    //    if(NoticiaData.dataN.equals(Item.TYPE)) {
     //        Intent intent = new Intent(this, NoticiaContentActivity.class);
     //        intent.putExtra("pos", position);
     //        startActivity(intent);
@@ -186,25 +182,39 @@ public class NoticiasActivity extends AppCompatActivity implements  DrawerLayout
     }
     //endregion
 
+    //region Drawer-Items
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         binding.drawer.closeDrawers();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         switch (item.getItemId()){
+
             case R.id.nav_noticias:
+                toolbar.setTitle(R.string.actualidad);
+
                 Toast.makeText(this, "Noticias",Toast.LENGTH_SHORT).show();
                 cambiarFragment(new NoticiasFragment());
                 break;
             case R.id.nav_equipo:
+                toolbar.setTitle(R.string.equipo);
+
                 Toast.makeText(this, "Mí Equipo",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_tabla:
+                toolbar.setTitle(R.string.tabla);
+
                 Toast.makeText(this, "Tabla de Posiciones",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_partidos:
+                toolbar.setTitle(R.string.partidos);
+
                 Toast.makeText(this, "Partidos",Toast.LENGTH_SHORT).show();
+                cambiarFragment(new PartidoFragment());
                 break;
             case R.id.nav_historia:
+                toolbar.setTitle(R.string.historia);
+
                 Toast.makeText(this, "Historia de la Liga Aguila",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_perfil:
@@ -218,6 +228,7 @@ public class NoticiasActivity extends AppCompatActivity implements  DrawerLayout
         }
         return false;
     }
+    //endregion
 
     void cambiarFragment(Fragment fragment){
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

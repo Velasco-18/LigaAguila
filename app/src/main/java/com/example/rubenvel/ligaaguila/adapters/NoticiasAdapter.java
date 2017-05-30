@@ -2,20 +2,16 @@ package com.example.rubenvel.ligaaguila.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rubenvel.ligaaguila.InicioActivity;
 import com.example.rubenvel.ligaaguila.R;
 import com.example.rubenvel.ligaaguila.content.NoticiaContentActivity;
-import com.example.rubenvel.ligaaguila.databinding.NoticiaContentBinding;
 import com.example.rubenvel.ligaaguila.databinding.TemplateNoticiaBinding;
-import com.example.rubenvel.ligaaguila.fragments.NoticiasFragment;
 import com.example.rubenvel.ligaaguila.models.Noticia;
-import com.example.rubenvel.ligaaguila.util.Data;
+import com.example.rubenvel.ligaaguila.util.NoticiaData;
 
 import java.util.List;
 
@@ -63,7 +59,7 @@ public class NoticiasAdapter  extends RecyclerView.Adapter<NoticiasAdapter.Notic
     @Override
     public void onBindViewHolder(NoticiaHolder holder, int position) {
 
-        holder.binding.setNoticia(Data.getDataNoticia().get(position));
+        holder.binding.setNoticia(NoticiaData.getDataNoticia().get(position));
         holder.binding.setHandler(this);
 
         //Eventos
@@ -72,7 +68,7 @@ public class NoticiasAdapter  extends RecyclerView.Adapter<NoticiasAdapter.Notic
     //Retorna el tamaño
     @Override
     public int getItemCount() {
-        return Data.getDataNoticia().size();
+        return NoticiaData.getDataNoticia().size();
     }
 
     //public void onClick(View v){

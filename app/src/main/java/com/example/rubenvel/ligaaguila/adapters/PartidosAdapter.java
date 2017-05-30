@@ -1,5 +1,6 @@
 package com.example.rubenvel.ligaaguila.adapters;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import com.example.rubenvel.ligaaguila.R;
 import com.example.rubenvel.ligaaguila.databinding.TemplatePartidoBinding;
 import com.example.rubenvel.ligaaguila.models.Partido;
+import com.example.rubenvel.ligaaguila.util.NoticiaData;
+import com.example.rubenvel.ligaaguila.util.PartidoData;
 
 import java.util.List;
 
@@ -24,26 +27,28 @@ public class PartidosAdapter extends RecyclerView.Adapter<PartidosAdapter.Partid
 
     LayoutInflater inflater;
     List<Partido> dataP;
-    OnPartidoSelected onPartidoSelected;
+    View.OnClickListener onClickListener;
 
-    public PartidosAdapter(LayoutInflater inflater, List<Partido> dataP, OnPartidoSelected onPartidoSelected){
+    public PartidosAdapter(LayoutInflater inflater, List<Partido> dataP, View.OnClickListener onClickListener){
         this.inflater = inflater;
         this.dataP = dataP;
-        this.onPartidoSelected = onPartidoSelected;
+        this.onClickListener = onClickListener;
     }
     //Se crea el viewHolder
     @Override
-    public PartidosAdapter.PartidoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PartidoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflater.inflate(R.layout.template_partido, parent, false);
-        return new PartidoHolder(v);
+        PartidoHolder holder = new PartidoHolder(v);
+        return holder;
     }
     //Se enlaza el viewHolder - Cuando se ponen datos
     @Override
     public void onBindViewHolder(PartidoHolder holder, int position) {
-        Partido p = dataP.get(position);
-        holder.binding.setPartido(p);
-        holder.binding.getRoot().setTag(position);
+
+        holder.binding.setPartido(PartidoData.getDataPartido().get(position));
         holder.binding.setHandler(this);
+        //Eventos
+        holder.setOnClickListeners();
     }
     //Retorna el tamaño
     @Override
@@ -51,20 +56,37 @@ public class PartidosAdapter extends RecyclerView.Adapter<PartidosAdapter.Partid
         return dataP.size();
     }
 
-    public void onClick(View view){
-        int pos = (int) view.getTag();
-        onPartidoSelected.onPartido(pos);
-    }
+    //public void onClick(View view){
+    //    int pos = (int) view.getTag();
+    //    onPartidoSelected.onPartido(pos);
+    //}
 
     //region ViewHolder
-    public static class PartidoHolder extends RecyclerView.ViewHolder{
+    public static class PartidoHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         //Este ViewHolder es la clase que da acceso a los views del template
         TemplatePartidoBinding binding;
+
+        Context context;
 
         public PartidoHolder(View itemView) {
             super(itemView);
 
+            context = itemView.getContext();
+
             binding = DataBindingUtil.bind(itemView);
+        }
+
+        void setOnClickListeners(){
+            binding.cardPartido.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int pos = 0;
+
+           // Intent intent = new Intent(context, NoticiaContentActivity.class);
+           // intent.putExtra(NoticiaContentActivity.POS_EXTRA, pos);
+           // context.startActivity(intent);
         }
     }
     //endregion

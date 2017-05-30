@@ -1,28 +1,19 @@
 package com.example.rubenvel.ligaaguila.fragments;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rubenvel.ligaaguila.InicioActivity;
 import com.example.rubenvel.ligaaguila.R;
 import com.example.rubenvel.ligaaguila.adapters.NoticiasAdapter;
-import com.example.rubenvel.ligaaguila.content.NoticiaContentActivity;
 import com.example.rubenvel.ligaaguila.databinding.FragmentNoticiasBinding;
-import com.example.rubenvel.ligaaguila.models.Noticia;
-import com.example.rubenvel.ligaaguila.util.Data;
-
-import java.util.List;
-
-import static com.example.rubenvel.ligaaguila.util.Data.getDataNoticia;
+import com.example.rubenvel.ligaaguila.util.NoticiaData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,7 +52,7 @@ public class NoticiasFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_noticias, container, false);
 
-        adapter = new NoticiasAdapter(Data.dataN,getLayoutInflater(null), this);
+        adapter = new NoticiasAdapter(NoticiaData.getDataNoticia(),getLayoutInflater(null), this);
         binding.noticiasList.setAdapter(adapter);//Posicion del RecyclerView
         binding.noticiasList.setLayoutManager(new LinearLayoutManager(getActivity())); //Organizar elementos en pantalla
 
