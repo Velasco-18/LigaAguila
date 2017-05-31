@@ -31,7 +31,7 @@ public class InicioActivity extends AppCompatActivity  {
 
         preferences = getSharedPreferences("Registro", contexto.MODE_PRIVATE);
 
-        String Nombre=preferences.getString("Nombre", "" );
+        /*String Nombre=preferences.getString("Nombre", "" );
         binding.editNombre.setText(Nombre);
 
         String Apellido=preferences.getString("Apellido", "" );
@@ -47,7 +47,7 @@ public class InicioActivity extends AppCompatActivity  {
         binding.editContrasenaRec.setText(ContrasenaRec);
 
         String Correo=preferences.getString("Correo", "" );
-        binding.editCorreo.setText(Correo);
+        binding.editCorreo.setText(Correo);*/
 
         int spinnerEquipo = preferences.getInt("Equipo",-1);
         if(spinnerEquipo != -1){
@@ -64,8 +64,17 @@ public class InicioActivity extends AppCompatActivity  {
     }
 
 
-
     public void goToGuardarRegistro(){
+
+         if(binding.editNombre == null && binding.editApellido != null && binding.editUsuario != null
+                 && binding.editContrasena != null && binding.editContrasenaRec != null && binding.editCorreo != null){
+             Toast.makeText(getApplicationContext(), "Llene los campos de Registro Correctamente", Toast.LENGTH_SHORT).show();
+
+         }else{
+             Toast.makeText(getApplicationContext(), "Registrado Correctamente", Toast.LENGTH_SHORT).show();
+             Intent intent = new Intent(this, SesionActivity.class);
+             startActivity(intent);
+         }
         int pos=binding.spinner.getSelectedItemPosition();
 
         SharedPreferences.Editor editor = preferences.edit();
@@ -80,8 +89,5 @@ public class InicioActivity extends AppCompatActivity  {
 
         editor.apply();
 
-        Toast.makeText(getApplicationContext(), "Registrado Correctamente", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, SesionActivity.class);
-        startActivity(intent);
     }
 }

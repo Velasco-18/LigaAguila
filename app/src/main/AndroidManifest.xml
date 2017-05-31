@@ -30,8 +30,10 @@
             android:name=".NoticiasActivity"
             android:label="@string/actualidad"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".content.NoticiaContentActivity"
-            android:theme="@style/AppTheme.NoActionBar" ></activity>
+        <activity
+            android:name=".content.NoticiaContentActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UserActivity" android:label="@string/perfil"></activity>
     </application>
 
 </manifest>

@@ -19,8 +19,11 @@ import android.widget.Toast;
 
 import com.example.rubenvel.ligaaguila.adapters.NoticiasAdapter;
 import com.example.rubenvel.ligaaguila.databinding.ActivityNoticiasBinding;
+import com.example.rubenvel.ligaaguila.fragments.EquipoFragment;
+import com.example.rubenvel.ligaaguila.fragments.HistoriaFragment;
 import com.example.rubenvel.ligaaguila.fragments.NoticiasFragment;
 import com.example.rubenvel.ligaaguila.fragments.PartidoFragment;
+import com.example.rubenvel.ligaaguila.fragments.PosicionesFragment;
 import com.example.rubenvel.ligaaguila.models.Noticia;
 import com.example.rubenvel.ligaaguila.util.NoticiaData;
 
@@ -200,11 +203,13 @@ public class NoticiasActivity extends AppCompatActivity implements  DrawerLayout
                 toolbar.setTitle(R.string.equipo);
 
                 Toast.makeText(this, "Mí Equipo",Toast.LENGTH_SHORT).show();
+                cambiarFragment(new EquipoFragment());
                 break;
             case R.id.nav_tabla:
                 toolbar.setTitle(R.string.tabla);
 
                 Toast.makeText(this, "Tabla de Posiciones",Toast.LENGTH_SHORT).show();
+                cambiarFragment(new PosicionesFragment());
                 break;
             case R.id.nav_partidos:
                 toolbar.setTitle(R.string.partidos);
@@ -216,13 +221,16 @@ public class NoticiasActivity extends AppCompatActivity implements  DrawerLayout
                 toolbar.setTitle(R.string.historia);
 
                 Toast.makeText(this, "Historia de la Liga Aguila",Toast.LENGTH_SHORT).show();
+                cambiarFragment(new HistoriaFragment());
                 break;
             case R.id.nav_perfil:
                 Toast.makeText(this, "Perfíl",Toast.LENGTH_SHORT).show();
+                Intent intentPerfil = new Intent(NoticiasActivity.this, UserActivity.class);
+                startActivity(intentPerfil);
                 break;
             case R.id.nav_logout:
-                Intent intent = new Intent(NoticiasActivity.this, SesionActivity.class);
-                startActivity(intent);
+                Intent intentSalir = new Intent(NoticiasActivity.this, SesionActivity.class);
+                startActivity(intentSalir);
                 finish();
                 break;
         }

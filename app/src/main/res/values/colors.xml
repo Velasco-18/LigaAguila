@@ -8,7 +8,7 @@
     <color name="gris">#585858</color>
     <color name="fondoInputText">#8f8a8a8a</color>
     <color name="white">#e4e4e4</color>
-    <color name="fondoInputTextI">#31585858</color>
+    <color name="fondoInputTextI">#55000000</color>
 
     <color name="icon">#585858</color>
     <color name="elementBg">#333333</color>

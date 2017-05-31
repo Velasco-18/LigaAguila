@@ -20,89 +20,98 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/image"
+        <android.support.v7.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline"
-            app:srcCompat="@drawable/mask315"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageViewTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/logo" />
+
+                <ImageView
+                    android:id="@+id/mask"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageViewTitle"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/mask90" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/app_name"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/letter_title"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <Button
+                    android:id="@+id/omitir"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:elevation="0dp"
+                    android:onClick="@{()->handlerOmitir.goToOmitir()}"
+                    android:text="@string/omitir"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlHardcoded,UnusedAttribute" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.9" />
+            app:layout_constraintGuide_percent="0.9"
+            tools:layout_editor_absoluteY="536dp"
+            tools:layout_editor_absoluteX="0dp" />
 
         <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guideline"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <ImageView
-            android:id="@+id/imageInicio"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:contentDescription=""
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@+id/guideline"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.489"
-            app:srcCompat="@drawable/logo"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:id="@+id/mask"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageInicio"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageInicio"
-            app:srcCompat="@drawable/mask45"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="26dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="@string/name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/letter_title"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/imageInicio"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:ignore="SpUsage" />
-
-        <Button
-            android:id="@+id/omitir"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:elevation="0dp"
-            android:onClick="@{()->handlerOmitir.goToOmitir()}"
-            android:text="@string/omitir"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="RtlHardcoded,UnusedAttribute" />
+            app:layout_constraintGuide_percent="0.52" />
 
         <Button
             android:id="@+id/button_iniciar"
@@ -114,7 +123,8 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/button_reg"
             android:onClick="@{()-> handlerSesion.goToInicioSesion()}"
-            android:layout_marginTop="0dp" />
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp" />
 
 
         <Button
@@ -127,20 +137,18 @@
             app:layout_constraintRight_toLeftOf="@+id/button_iniciar"
             android:onClick="@{()-> handlerRegistro.goToRegistro()}"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp" />
 
         <ScrollView
+            android:id="@+id/scrollView3"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/button_iniciar"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/image"
-            android:id="@+id/scrollView3">
+            app:layout_constraintTop_toTopOf="@+id/guideline">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -151,13 +159,11 @@
                     android:id="@+id/usuario"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="8dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
                     android:background="@color/fondoInputTextI"
                     android:paddingTop="8dp"
                     android:textColorHint="@color/white"
@@ -170,22 +176,21 @@
                         android:id="@+id/user"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_marginTop="8dp"
                         android:hint="@string/user"
+                        android:inputType="text"
                         android:textColor="@color/white"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintRight_toRightOf="parent" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/pass"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"

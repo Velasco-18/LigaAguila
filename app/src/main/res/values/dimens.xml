@@ -12,4 +12,7 @@
     <dimen name="icon">25dp</dimen>
     <dimen name="icon_versus">40dp</dimen>
     <dimen name="partidoHeader">135dp</dimen>
+    <dimen name="img_dimen">60dp</dimen>
+    <dimen name="descripcion">130dp</dimen>
+    <dimen name="icon_Equipo">50dp</dimen>
 </resources>
