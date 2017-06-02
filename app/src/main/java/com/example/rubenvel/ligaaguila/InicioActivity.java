@@ -63,31 +63,43 @@ public class InicioActivity extends AppCompatActivity  {
         return super.onOptionsItemSelected(item);
     }
 
-
     public void goToGuardarRegistro(){
 
-         if(binding.editNombre == null && binding.editApellido != null && binding.editUsuario != null
-                 && binding.editContrasena != null && binding.editContrasenaRec != null && binding.editCorreo != null){
-             Toast.makeText(getApplicationContext(), "Llene los campos de Registro Correctamente", Toast.LENGTH_SHORT).show();
+        String nombre = binding.editNombre.getText().toString();
+        String apellido=binding.editApellido.getText().toString();
+        String usuario =binding.editUsuario.getText().toString();
+        String contrasena= binding.editContrasena.getText().toString();
+        String contrasenaRec = binding.editContrasenaRec.getText().toString();
+        String correo = binding.editCorreo.getText().toString();
 
-         }else{
+         if(nombre.isEmpty() || apellido.isEmpty() || usuario.isEmpty() || contrasena.isEmpty() || contrasenaRec.isEmpty() || correo.isEmpty()){
+
+             Toast.makeText(getApplicationContext(), "Llene los campos de registro completamente", Toast.LENGTH_SHORT).show();
+
+         }else if(contrasena.equals(contrasenaRec)){
+
+             int pos=binding.spinner.getSelectedItemPosition();
+
+             SharedPreferences.Editor editor = preferences.edit();
+             editor.putString("Nombre", nombre);
+             editor.putString("Apellido", apellido);
+             editor.putString("Usuario", usuario);
+             editor.putString("Contrasena", contrasena);
+             editor.putString("ContrasenaRec", contrasenaRec);
+             editor.putString("Correo", correo);
+
+             editor.putInt("Equipo", pos);
+
+             editor.apply();
+
              Toast.makeText(getApplicationContext(), "Registrado Correctamente", Toast.LENGTH_SHORT).show();
              Intent intent = new Intent(this, SesionActivity.class);
              startActivity(intent);
+
+         }else{
+
+                Toast.makeText(getApplicationContext(), "Rectifica tu contraseña", Toast.LENGTH_SHORT).show();
+
          }
-        int pos=binding.spinner.getSelectedItemPosition();
-
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("Nombre", binding.editNombre.getText().toString());
-        editor.putString("Apellido", binding.editApellido.getText().toString());
-        editor.putString("Usuario", binding.editUsuario.getText().toString());
-        editor.putString("Contrasena", binding.editContrasena.getText().toString());
-        editor.putString("ContrasenaRec", binding.editContrasenaRec.getText().toString());
-        editor.putString("Correo", binding.editCorreo.getText().toString());
-
-        editor.putInt("Equipo", pos);
-
-        editor.apply();
-
     }
 }

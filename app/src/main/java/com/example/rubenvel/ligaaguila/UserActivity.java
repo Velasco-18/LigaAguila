@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.rubenvel.ligaaguila.attrs.Attrs;
 import com.example.rubenvel.ligaaguila.databinding.ActivityUserBinding;
@@ -150,6 +151,13 @@ public class UserActivity extends AppCompatActivity {
                 break;
 
             case R.id.opc_perfil:
+
+                Toast.makeText(this, "Cerrando Sesión",Toast.LENGTH_SHORT).show();
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("login",false);
+                editor.apply();
+                finish();
+
                 Intent intentSalir = new Intent(UserActivity.this, SesionActivity.class);
                 startActivity(intentSalir);
                 finish();

@@ -30,7 +30,7 @@ public class PosicionesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_posiciones, container, false);
-        binding.
+        //binding.
         return binding.getRoot();
     }
 

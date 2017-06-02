@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.example.rubenvel.ligaaguila.R;
 import com.example.rubenvel.ligaaguila.adapters.NoticiasAdapter;
@@ -19,6 +20,8 @@ import com.example.rubenvel.ligaaguila.util.NoticiaData;
  * A simple {@link Fragment} subclass.
  */
 public class NoticiasFragment extends Fragment implements View.OnClickListener{
+
+    //WebView web;
 
     public static NoticiasFragment instace(){return new NoticiasFragment();}
 
@@ -61,10 +64,10 @@ public class NoticiasFragment extends Fragment implements View.OnClickListener{
         return binding.getRoot();
     }
 
-    public void notifyDataSet(){
-        if(adapter != null)
-            adapter.notifyDataSetChanged();
-    }
+    //public void notifyDataSet(){
+    //    if(adapter != null)
+    //        adapter.notifyDataSetChanged();
+    //}
 
     //@Override
     //public void onNoticia(int position) {

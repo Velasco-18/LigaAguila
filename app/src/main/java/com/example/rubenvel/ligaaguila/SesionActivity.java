@@ -11,12 +11,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.rubenvel.ligaaguila.databinding.ActivitySesionBinding;
+import com.example.rubenvel.ligaaguila.models.Noticia;
 
 public class SesionActivity extends AppCompatActivity {
 
     ActivitySesionBinding binding;
     Context contexto;
-    SharedPreferences preferences, preferences1;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,30 +29,45 @@ public class SesionActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences("Registro", contexto.MODE_PRIVATE);
 
-        preferences1 = getSharedPreferences("Reg", contexto.MODE_PRIVATE);
+        boolean login = preferences.getBoolean("login",false);
+
+        if(login){
+            Intent intent=new Intent(this, NoticiasActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
     }
 
     public void goToInicioSesion(){
 
+        SharedPreferences.Editor editor = preferences.edit();
+
         String user=preferences.getString("Usuario", "" );
         String pass=preferences.getString("Contrasena", "" );
 
-        String us=preferences1.getString("User", "" );
-        String pa=preferences1.getString("Password", "" );
+        String us = binding.user.getText().toString();
+        String pa = binding.password.getText().toString();
 
-        SharedPreferences.Editor editor = preferences1.edit();
-        editor.putString("User", binding.user.getText().toString());
-        editor.putString("Password", binding.password.getText().toString());
-        editor.apply();
+        if(us.isEmpty() || pa.isEmpty()){
 
-        //String us = binding.user.getText().toString();
-        //String pa = binding.password.getText().toString();
+            Toast.makeText(getApplicationContext(), "Llene los campos completamente", Toast.LENGTH_SHORT).show();
 
-        if(us == user && pa == pass){
-            Toast.makeText(this, "Llene los campos requeridos",Toast.LENGTH_SHORT).show();
-        }else{
+        } else if(us.equals(user) && pa.equals(pass)){
+
+            editor.putBoolean("login",true);
+            editor.apply();
+            finish();
+
             Intent intent = new Intent(this, NoticiasActivity.class);
             startActivity(intent);
+
+        }else{
+
+            Toast.makeText(this, "Usuario o Contraseña incorrectos",Toast.LENGTH_SHORT).show();
+
+           //>>Enviar a activity principal con las sharedPreferences guardadas
+
         }
 
     }
